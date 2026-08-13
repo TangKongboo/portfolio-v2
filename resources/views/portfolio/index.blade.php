@@ -185,42 +185,58 @@
 
 <!-- Contact Section -->
 <section id="contact" class="py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Let's Connect</h2>
             <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
             <p class="mt-4 text-slate-600 dark:text-slate-400">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
         </div>
         
-        <div class="bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 md:p-12">
-            @if(session('success'))
-            <div class="mb-6 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-md p-4">
-                <p class="text-sm text-green-600 dark:text-green-400 font-medium">{{ session('success') }}</p>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <!-- Direct Contact & QR -->
+            <div class="lg:col-span-2 bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 flex flex-col items-center justify-center text-center">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Direct Contact</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Scan to chat with me instantly on Telegram.</p>
+                <div class="bg-white p-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 mb-4 inline-block">
+                    <img src="{{ asset('images/telegram-qr.png') }}" alt="Telegram QR Code" class="w-48 h-48 object-contain rounded-lg">
+                </div>
+                <a href="https://t.me/+85561913865" target="_blank" class="flex items-center justify-center gap-2 text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    @MENHCHEU
+                </a>
             </div>
-            @endif
 
-            <form action="{{ route('portfolio.contact') }}" method="POST" class="space-y-6">
-                @csrf
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
-                        <input type="text" name="name" id="name" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" placeholder="Your name">
+            <!-- Contact Form -->
+            <div class="lg:col-span-3 bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 md:p-12">
+                @if(session('success'))
+                <div class="mb-6 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-md p-4">
+                    <p class="text-sm text-green-600 dark:text-green-400 font-medium">{{ session('success') }}</p>
+                </div>
+                @endif
+
+                <form action="{{ route('portfolio.contact') }}" method="POST" class="space-y-6">
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
+                            <input type="text" name="name" id="name" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
+                            <input type="email" name="email" id="email" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" placeholder="you@example.com">
+                        </div>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
-                        <input type="email" name="email" id="email" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" placeholder="you@example.com">
+                        <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" placeholder="How can I help you?"></textarea>
                     </div>
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
-                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" placeholder="How can I help you?"></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
-                        Send Message
-                    </button>
-                </div>
-            </form>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
