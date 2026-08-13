@@ -38,5 +38,8 @@ RUN npm run build
 # Set correct permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Make the start script executable
+RUN chmod +x /var/www/html/start.sh
+
+# Start Apache using the custom script that caches env variables
+CMD ["/var/www/html/start.sh"]
