@@ -49,9 +49,9 @@
             <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
                 <!-- Profile Image & Quick Bio Card -->
                 <div class="w-full md:w-1/3 flex flex-col items-center text-center">
-                    <div class="relative group mb-6">
+                    <div class="relative group mb-6 w-48 h-48 sm:w-56 sm:h-56">
                         <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                        <img src="{{ asset('images/profile1.jpg') }}" alt="Kongboo Tang" class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover border-4 border-white dark:border-slate-900 shadow-xl">
+                        <img src="{{ asset('images/profile1.jpg') }}" alt="Kongboo Tang" class="relative w-full h-full rounded-full object-cover object-top border-4 border-white dark:border-slate-900 shadow-xl">
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Kongboo Tang</h3>
                     <p class="text-indigo-600 dark:text-indigo-400 font-medium mt-1">Software Engineering Student</p>
